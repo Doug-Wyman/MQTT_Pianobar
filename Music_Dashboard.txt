@@ -1,0 +1,217 @@
+views:
+  - theme: Google Dark Theme
+    title: Home
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: input_button.pianobar_pause
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);}
+            name: Pause/Play
+            icon_height: 40px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: input_button.pianobar_skip
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);}
+            name: Skip
+            icon_height: 40px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);}
+            entity: input_button.pianobar_stop_on_change
+            icon: mdi:music-note-off
+            name: Stop Next
+            icon_height: 40px
+      - type: horizontal-stack
+        cards:
+          - show_name: false
+            show_icon: true
+            type: button
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);
+            tap_action:
+              action: toggle
+            entity: input_button.pianobar_refresh
+            icon_height: 40px
+          - show_name: false
+            show_icon: true
+            name: Liked
+            type: button
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);
+               background-image: url("/hacsfiles/love.png");
+               background-repeat: no-repeat;
+               background-position: center;}
+            tap_action:
+              action: call-service
+              service: automation.trigger
+              target:
+                entity_id: automation.button_pianobar_like
+              data:
+                skip_condition: true
+            show_state: false
+            icon_height: 40px
+            entity: binary_sensor.pianobar_is_liked
+          - show_name: false
+            show_icon: true
+            style: |
+              ha-card {
+               border: solid 2px var(--primary-color);
+            type: button
+            tap_action:
+              action: toggle
+            entity: input_button.pianobar_countdown
+            icon: mdi:counter
+            icon_height: 40px
+      - show_state: false
+        show_name: false
+        camera_view: auto
+        type: picture-entity
+        entity: camera.192_168_0_158
+        image: www/bedroom.png
+        name: Pianobar Playing
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-playlist/0
+        tap_action:
+          action: call-service
+          service: notify.nextsong
+          target: {}
+          data:
+            message: playlist
+      - show_name: false
+        show_icon: false
+        show_state: true
+        type: glance
+        style: |
+          ha-card {
+           border: solid 2px var(--primary-color);}
+        entities:
+          - entity: sensor.pianobar_time
+          - entity: sensor.pianobarauthor
+            name: Author
+          - entity: sensor.pianobartitle
+            name: Title
+          - entity: sensor.pianobaralbum
+            name: Album
+          - entity: sensor.pianobarstation
+            name: Station
+          - entity: sensor.pianobarlike
+            name: Favorite?
+        columns: 1
+        state_color: true
+      - type: custom:collapsable-cards
+        title: Stations
+        show_name: false
+        show_icon: false
+        style: |
+          ha-card {
+           border: solid 2px var(--primary-color);}
+        cards:
+          - type: glance
+            show_name: false
+            show_icon: false
+            entities:
+              - entity: sensor.pianobarstations_0
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station0
+              - entity: sensor.pianobarstations_1
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station1
+              - entity: sensor.pianobarstations_2
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station2
+              - entity: sensor.pianobarstations_3
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station3
+              - entity: sensor.pianobarstations_4
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station4
+              - entity: sensor.pianobarstations_5
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station5
+              - entity: sensor.pianobarstations_6
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station6
+              - entity: sensor.pianobarstations_7
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station7
+              - entity: sensor.pianobarstations_8
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station8
+              - entity: sensor.pianobarstations_9
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station9
+              - entity: sensor.pianobarstations_10
+                tap_action:
+                  action: call-service
+                  service: notify.nextsong
+                  data:
+                    message: station10
+            columns: 1
+      - show_name: false
+        show_icon: false
+        show_state: true
+        type: glance
+        title: Playlist
+        entities:
+          - entity: sensor.pianobarlist1
+          - entity: sensor.pianobarlist2
+          - entity: sensor.pianobarlist3
+        columns: 1
+      - show_name: true
+        show_icon: false
+        show_state: true
+        type: glance
+        entities:
+          - entity: sensor.pianobarinfo
+          - entity: sensor.pianobarcountdown

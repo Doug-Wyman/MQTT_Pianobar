@@ -1,0 +1,123 @@
+sensor:
+  - name: "PianobarAlbum"
+    unique_id: "Pianobar_Album"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.2 }}"
+
+  - name: "PianobarAuthor"
+    unique_id: "Pianobar_Author"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.0 }}"
+
+  - name: "PianobarCountdown"
+    unique_id: "Pianobar_Count"
+    state_topic: "/sensor/pianobar/countdown"
+    
+  - name: "PianobarInfo"
+    unique_id: "Pianobar_Info"
+    state_topic: "/sensor/pianobar/info"
+    
+  - name: "PianobarLike"
+    unique_id: "Pianobar_Like"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.4 }}"
+    
+  - name: "PianobarList1"
+    unique_id: "Pianobar_List1"
+    state_topic: "/sensor/pianobar/list1"
+    
+  - name: "PianobarList2"
+    unique_id: "Pianobar_List2"
+    state_topic: "/sensor/pianobar/list2"
+    
+  - name: "PianobarList3"
+    unique_id: "Pianobar_List3"
+    state_topic: "/sensor/pianobar/list3"
+    
+  - name: "PianobarStation"
+    unique_id: "Pianobar_Station"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.5 }}"
+
+
+  - name: "PianobarStations_0"
+    unique_id: "Pianobar_Stations_0"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.0 }}"
+
+  - name: "PianobarStations_1"
+    unique_id: "Pianobar_Stations_1"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.1 }}"
+
+  - name: "PianobarStations_2"
+    unique_id: "Pianobar_Stations_2"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.2 }}"
+
+  - name: "PianobarStations_3"
+    unique_id: "Pianobar_Stations_3"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.3 }}"
+
+  - name: "PianobarStations_4"
+    unique_id: "Pianobar_Stations_4"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.4 }}"
+
+  - name: "PianobarStations_5"
+    unique_id: "Pianobar_Stations_5"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.5 }}"
+
+  - name: "PianobarStations_6"
+    unique_id: "Pianobar_Stations_6"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.6 }}"
+
+  - name: "PianobarStations_7"
+    unique_id: "Pianobar_Stations_7"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.7 }}"
+
+  - name: "PianobarStations_8"
+    unique_id: "Pianobar_Stations_8"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.8 }}"
+
+  - name: "PianobarStations_9"
+    unique_id: "Pianobar_Stations_9"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.9 }}"
+
+  - name: "PianobarStations_10"
+    unique_id: "Pianobar_Stations_10"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.10 }}"
+
+  - name: "PianobarStations_11"
+    unique_id: "Pianobar_Stations_11"
+    state_topic: "/sensor/pianobar/stations"
+    value_template: "{{ value_json.11 }}"
+
+  - name: "Pianobar_Time"
+    unique_id: "Pianobar_Time"
+    state_topic: /sensor/pianobar/time
+
+  - name: "PianobarTitle"
+    unique_id: "Pianobar_Title"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.1 }}"
+
+  - name: "PianobarURL"
+    unique_id: "Pianobar_URL"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.3 }}"
+
+binary_sensor:
+  - name:  pianobar_is_liked
+    unique_id: 'isliked'
+    device_class: "sound"
+    state_topic: "/sensor/pianobar/newsong"
+    value_template: "{{ value_json.4 }}"
+

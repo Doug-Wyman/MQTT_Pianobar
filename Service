@@ -1,0 +1,4 @@
+notify:
+  - name: NextSong
+    platform: file
+    filename: 'pianobar/nextsong'
