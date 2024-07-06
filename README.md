@@ -1,4 +1,5 @@
 # MQTT_Pianobar
+ !!!! Warning if there is a pipe failure Pianobar continues but MQTT stope
  Inspiration from kylejohnson's Patiobar and a need to run Pianobar on a machine 
  seperate from the machine running Home Assistant spawned this creation.
 
